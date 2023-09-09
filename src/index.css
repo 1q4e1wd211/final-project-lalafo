@@ -6,3 +6,50 @@
   margin: 0;
   padding: 0;
 }
+
+.buttons button{
+  margin-left: 20px;
+  background-color: rgb(129 140 248);
+  border-radius: 10px;
+  padding: 2px 5px;
+}
+
+.clouse{
+  width: 200px;
+  position: absolute;
+  left: 800px;
+  right: 0;
+  padding: 2px 12px;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  background-color: rgb(255, 254, 254);
+  outline: none;
+}
+
+.opened{
+  position: absolute;
+  opacity: 100;
+  left: 25px;
+}
+
+.bclouse{
+  outline: none;
+  position: absolute;
+  left: 800px;
+  padding: 2px 10px;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  background-color: rgb(255, 254, 254);
+  opacity: 0;
+  /* display: none; */
+}
+
+.bclouse:hover{
+  background-color: rgb(230, 230, 230);
+}
+
+.bopened{
+  position: absolute;
+  opacity: 100;
+  left: 1px;
+}

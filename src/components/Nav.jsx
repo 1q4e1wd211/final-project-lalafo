@@ -10,22 +10,23 @@ const Nav = () => {
 
 
   return (
-    <div className='flex justify-between px-[50px] py-[20px] items-center top-[0px] left-[0px] bg-indigo-800'>
-        <a href='#' className='text-[20px] font-serif'>Logotype</a>
-        <div className='relative w-[660px] text-end'>
+    <div className='flex justify-between px-[50px] py-[20px] items-center top-[0px] left-[0px] bg-indigo-800 overflow-hidden'>
+        <a href='#' className='text-[20px] font-serif text-white'>Logotype</a>
+        <div className='relative w-[660px] text-end'>       
             <input 
                 type="text" 
                 placeholder='что вы ищете?...'
-                className={`rounded-l-lg bg-slate-200 px-[20px] py-[2px] outline-none absolute left-[710px] duration-150  ${isOpen ? 'left-[4px]' : ''}`}
+                className={`clouse ${isOpen ? 'opened' : ''}`}
             />
+            <button className={`bclouse ${isOpen ? 'bopened' : ''}`}><i class="fa-solid fa-magnifying-glass"></i></button>
             <button
                 onClick={openMenu}
-                className={`bg-indigo-400 rounded-full py-[2px] px-[10px] outline-none duration-150 ${isOpen ? 'rounded-l-lg' : ''}`}
+                className={`bg-indigo-400 hover:bg-indigo-500 rounded-full py-[2px] px-[10px] outline-none duration-150 ${isOpen ? 'rounded-l-lg' : ''}`}
             >
                 {isOpen ? <i class="fa-solid fa-x"></i> : <i class="fa-solid fa-magnifying-glass"></i>}
             </button>
-            <a href="#" className='mx-[50px]'>Регистрация \ Вход</a>
-            <button className='py-[2px] bg-indigo-400 px-[10px] rounded-[10px]'>Подать обьявление</button>
+            <a href="#" className='mx-[50px] text-white'>Регистрация \ Вход</a>
+            <button className='py-[2px] bg-indigo-400 px-[10px] rounded-[10px] hover:bg-indigo-500'>Подать обьявление</button>
         </div>
     </div>
   )
