@@ -6,7 +6,39 @@ const Filter = () => {
   const [from, setForm] = React.useState('')
   const [up, setUp] = React.useState('')
 
+  const [navbtn, setNavbtn] = React.useState('Все')
 
+  const buttonsNames = [
+    {
+      btn: 'Все',
+      id: 0
+    },
+    {
+      btn:'Транспорт',
+      id: 1
+    }, 
+    {
+      btn:'Личные вещи',
+      id: 2
+    }, 
+    {
+      btn:'Дом и Сад',
+      id: 3
+    }, 
+    {
+      btn:'Электроника',
+      id: 4
+    }, 
+    {
+      btn:'Другое',
+      id:5
+    }]
+
+  const func = (namebtn) =>{
+    setNavbtn(namebtn)
+  }
+
+  console.log(navbtn);
   return (
     <div className=''>
         <div className='bg-indigo-700 mx-[150px] flex items-center'>
@@ -28,17 +60,19 @@ const Filter = () => {
             
           </div>
           <div className='buttons'>
-            <Button name='Транспорт'/>
-            <Button name='Личные вещи'/>
-            <Button name='Дом и Сад'/>
-            <Button name='Электроника'/>
-            <Button name='Другое'/>
+            {buttonsNames.map(i  => (
+              <Button 
+                name={i.btn} 
+                key={i.id} 
+                func={() => func(i.btn)}/>
+            ))}
           </div>
         </div>
         <div>
           <Exhibitions 
             up={up}
             from={from}
+            nav={navbtn}
           />
         </div>
     </div>

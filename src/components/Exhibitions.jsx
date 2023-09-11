@@ -11,6 +11,7 @@ const Exhibitions = (props) => {
         description: 'Турбо ишак в спячем положений 1000км\с в бодром 5000км\с наелся пловом 10000км\с',
         price: 100000,
         id: 1,
+        all: 'Bсе',
       },
       {
         title: 'Садовый шланг',
@@ -19,6 +20,7 @@ const Exhibitions = (props) => {
         description: 'поливать свой сад афигенно',
         price: 500,
         id: 2,
+        all: 'Bсе',
      },
      {
         title: 'Масажерная кресло',
@@ -27,6 +29,7 @@ const Exhibitions = (props) => {
         description: 'электрический масажер хватит на всю оставшуюся жизнь',
         price: 1000,
         id: 3,
+        all: 'Bсе',
       },
       {
         title: 'Авто запчасти на мерседес бенз, w208, clk, год выпуска 2001, объём',
@@ -35,16 +38,20 @@ const Exhibitions = (props) => {
         description: 'цена договорная',
         price: 0,
         id: 4,
+        all: 'Все',
       },
       
   ])
 
   const filteredExhibitions = exhibitions.filter((item) => {
-    const price = item.price;
-    const from = props.from ? +props.from : Number.NEGATIVE_INFINITY;
-    const up = props.up ? +props.up : Number.POSITIVE_INFINITY;
+    const price = item.price
+    const navbtn = props.nav
+    const nav = item.nav
+    const all = 'Все'
+    const from = props.from ? +props.from : Number.NEGATIVE_INFINITY
+    const up = props.up ? +props.up : Number.POSITIVE_INFINITY
 
-    return price >= from && price <= up;
+    return (price >= from && price <= up && all === navbtn || nav === navbtn);
   });
 
   return (
@@ -56,6 +63,7 @@ const Exhibitions = (props) => {
             nav={item.nav}
             price={item.price}
             description={item.description}
+            key={item.id}
           />      
         ))}
     </div>

@@ -18,12 +18,12 @@ const Nav = () => {
                 placeholder='что вы ищете?...'
                 className={`clouse ${isOpen ? 'opened' : ''}`}
             />
-            <button className={`bclouse ${isOpen ? 'bopened' : ''}`}><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button className={`bclouse ${isOpen ? 'bopened' : ''}`}><i className="fa-solid fa-magnifying-glass"></i></button>
             <button
                 onClick={openMenu}
                 className={`bg-indigo-400 hover:bg-indigo-500 rounded-full py-[2px] px-[10px] outline-none duration-150 ${isOpen ? 'rounded-l-lg' : ''}`}
             >
-                {isOpen ? <i class="fa-solid fa-x"></i> : <i class="fa-solid fa-magnifying-glass"></i>}
+                {isOpen ? <i className="fa-solid fa-x"></i> : <i className="fa-solid fa-magnifying-glass"></i>}
             </button>
             <a href="#" className='mx-[50px] text-white'>Регистрация \ Вход</a>
             <button className='py-[2px] bg-indigo-400 px-[10px] rounded-[10px] hover:bg-indigo-500'>Подать обьявление</button>
