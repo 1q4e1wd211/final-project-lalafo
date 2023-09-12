@@ -11,7 +11,6 @@ const Exhibitions = (props) => {
         description: 'Турбо ишак в спячем положений 1000км\с в бодром 5000км\с наелся пловом 10000км\с',
         price: 100000,
         id: 1,
-        all: 'Bсе',
       },
       {
         title: 'Садовый шланг',
@@ -20,7 +19,6 @@ const Exhibitions = (props) => {
         description: 'поливать свой сад афигенно',
         price: 500,
         id: 2,
-        all: 'Bсе',
      },
      {
         title: 'Масажерная кресло',
@@ -29,29 +27,33 @@ const Exhibitions = (props) => {
         description: 'электрический масажер хватит на всю оставшуюся жизнь',
         price: 1000,
         id: 3,
-        all: 'Bсе',
       },
       {
         title: 'Авто запчасти на мерседес бенз, w208, clk, год выпуска 2001, объём',
         img: 'https://img5.lalafo.com/i/posters/original_webp/45/e1/1d/95f84416b12e073eddd6e94260.webp',
-        nav: 'Электроника',
+        nav: 'Транспорт',
         description: 'цена договорная',
         price: 0,
         id: 4,
-        all: 'Все',
       },
       
   ])
 
+  const [a, setA] = React.useState(false)
+
   const filteredExhibitions = exhibitions.filter((item) => {
     const price = item.price
     const navbtn = props.nav
+    const search = props.search.toLowerCase()
+    const title = item.title.toLowerCase()
     const nav = item.nav
     const all = 'Все'
     const from = props.from ? +props.from : Number.NEGATIVE_INFINITY
     const up = props.up ? +props.up : Number.POSITIVE_INFINITY
 
-    return (price >= from && price <= up && all === navbtn || nav === navbtn);
+    const startsWithSearch = title.startsWith(search)
+    
+    return (price >= from && price <= up && (all === navbtn || nav === navbtn) && (search == '' || startsWithSearch));
   });
 
   return (

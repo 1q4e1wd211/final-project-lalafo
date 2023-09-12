@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Card = (props) => {
-
+  
   return (
     <div className='ml-[30px] bg-white w-[230px] mb-[20px] mt-[20px] rounded-t-lg p-[3px]'>
         <div className='w-[225px] h-[223px] overflow-hidden'>

@@ -2,7 +2,7 @@ import React from 'react'
 import Button from './Button'
 import Exhibitions from './Exhibitions'
 
-const Filter = () => {
+const Filter = (props) => {
   const [from, setForm] = React.useState('')
   const [up, setUp] = React.useState('')
 
@@ -38,7 +38,9 @@ const Filter = () => {
     setNavbtn(namebtn)
   }
 
-  console.log(navbtn);
+  const search = props.search
+
+
   return (
     <div className=''>
         <div className='bg-indigo-700 mx-[150px] flex items-center'>
@@ -73,6 +75,7 @@ const Filter = () => {
             up={up}
             from={from}
             nav={navbtn}
+            search={search}
           />
         </div>
     </div>
