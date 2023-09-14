@@ -10,6 +10,7 @@ const Exhibitions = (props) => {
         nav: 'Транспорт',
         description: 'Турбо ишак в спячем положений 1000км\с в бодром 5000км\с наелся пловом 10000км\с',
         price: 100000,
+        favorites: false,
         id: 1,
       },
       {
@@ -18,6 +19,7 @@ const Exhibitions = (props) => {
         nav: 'Дом и Сад',
         description: 'поливать свой сад афигенно',
         price: 500,
+        favorites: false,
         id: 2,
      },
      {
@@ -26,6 +28,7 @@ const Exhibitions = (props) => {
         nav: 'Электроника',
         description: 'электрический масажер хватит на всю оставшуюся жизнь',
         price: 1000,
+        favorites: false,
         id: 3,
       },
       {
@@ -34,12 +37,22 @@ const Exhibitions = (props) => {
         nav: 'Транспорт',
         description: 'цена договорная',
         price: 0,
+        favorites: false,
         id: 4,
       },
       
   ])
 
-  const [a, setA] = React.useState(false)
+  const handleFavoriteClick = (id) => {
+    const updatedExhibitions = exhibitions.map((item) => {
+      if (item.id === id) {
+        return { ...item, favorites: !item.favorites };
+      }
+      return item;
+    });
+    setExhibitions(updatedExhibitions);
+  };
+  
 
   const filteredExhibitions = exhibitions.filter((item) => {
     const price = item.price
@@ -53,8 +66,8 @@ const Exhibitions = (props) => {
 
     const startsWithSearch = title.startsWith(search)
     
-    return (price >= from && price <= up && (all === navbtn || nav === navbtn) && (search == '' || startsWithSearch));
-  });
+    return (price >= from && price <= up && (all === navbtn || nav === navbtn) && (search == '' || startsWithSearch)
+  )});
 
   return (
     <div className='mx-[150px] bg-slate-200 flex flex-wrap'>
@@ -65,6 +78,8 @@ const Exhibitions = (props) => {
             nav={item.nav}
             price={item.price}
             description={item.description}
+            favorites={item.favorites}
+            setFavorites={() => handleFavoriteClick(item.id)}
             key={item.id}
           />      
         ))}
